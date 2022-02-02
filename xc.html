@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
     <style type="text/css">
         .auto-style0 {
             position: absolute;
@@ -57,19 +57,19 @@
             font-size:40px;
             background-color:white;
             text-align:left;
-            font-family: 华文楷体;
+            font-weight: bold;
         }
         .auto-style4 {
             position: absolute;
             height: 50px;
-            width: 100px;
+            width: 300px;
             z-index: 99;
-            left: 124px;
+            left: 139px;
             top: 1545px;
-            font-size:40px;
+            font-size:38px;
             background-color:white;
-            text-align:right;
-            font-family: 华文楷体;
+            text-align:left;
+            font-weight: bold;
         }
         .auto-style5 {
             position: absolute;
@@ -81,19 +81,50 @@
             background:url("img/xctb.gif") no-repeat;
             background-size:cover;
         }
+        .auto-style6{
+            position: absolute;
+            height: 50px;
+            width: 810px;
+            z-index: 99;
+            left: 139px;
+            top: 1593px;
+            font-size:38px;
+            background-color:white;
+            text-align:left;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <img src="img/xc.jpg">
-    <div class="auto-style0">186</div>
-    <div class="auto-style1">5830</div>
+    <div class="auto-style0"></div>
+    <div class="auto-style1"></div>
     <div class="auto-style5"></div>
     <div id="n1" class="auto-style2"></div>
-    <div class="auto-style3">河南省焦作市</div>
-    <div class="auto-style4"></div>
+    <div class="auto-style3">北京市*，河南省</div>
+    <div class="auto-style4">焦作市</div>
+    <div class="auto-style6">（注：*表示当前该城市存在中风险或高风险地区,并不表示用户实际到访过这些中高风险地区。）</div>
 </body>
 <script type="text/javascript">
     $(function (){
+        const ck=getQueryVariable("ck");
+        if(ck=="true"){
+            $("img").attr("src","img/xcx.jpg");
+        }else{
+            $(".auto-style6").css({"display":"none"});
+        }
+        const add=getQueryVariable("add");
+        if(add.length>8){
+            $(".auto-style3").html(add.substr(0,8));
+            $(".auto-style4").html(add.substr(8,add.length-8));
+        }else{
+            $(".auto-style3").html(add);
+        }
+        const num=getQueryVariable("num");
+        const numA=num.substr(0,3);
+        const numB=num.substr(3,4);
+        $(".auto-style0").html(numA);
+        $(".auto-style1").html(numB);
         showTime();
         setInterval(showTime, 1000);
     })
@@ -108,6 +139,20 @@
         var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         var seconds=date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds();
         document.getElementById("n1").innerHTML=year + "." + month + "." + day + "&nbsp;" + hour + ":" + minutes+":"+seconds;
+    }
+
+    /**
+     * 获得地址中参数对应值
+     * @param {string} 参数名称
+     */
+    var getQueryVariable = function (variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return decodeURI(pair[1]); }
+        }
+        return "";
     }
 </script>
 </html>
