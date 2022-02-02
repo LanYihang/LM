@@ -25,30 +25,34 @@
 </head>
 <body>
     <article class="page-container">
-        <div class="row cl">
-            <label class="formControls col-sm-3 col-xs-3 text-r">号码：</label>
-            <div class="formControls col-sm-6 col-xs-6">
-                <input type="text" id="xc" class="input-text radius"/>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="formControls col-sm-3 col-xs-3 text-r">地点：</label>
-            <div class="formControls col-sm-6 col-xs-6">
-                <input type="text" id="xcd" class="input-text radius"/>
-            </div>
-        </div>
-        <div class="row cl">
-            <div class="formControls col-sm-3 col-xs-3">
-                <div class="check-box">
-                    <input type="checkbox" id="xh">是否包含星号
+        <form class="form form-horizontal">
+            <div class="row cl">
+                <label class="formControls col-sm-3 col-xs-3 text-r">号码：</label>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="xc" class="input-text radius"/>
                 </div>
             </div>
-        </div>
-        <div class="row cl">
-            <div class="formControls col-sm-3 col-xs-3">
-                <a id="xcm" class="btn btn-danger radius">行程码</a>
+            <div class="row cl">
+                <label class="formControls col-sm-3 col-xs-3 text-r">地点：</label>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="xcd" class="input-text radius"/>
+                </div>
             </div>
-        </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3"></div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <div class="check-box">
+                        <input type="checkbox" id="xh">是否包含星号
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3"></div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <a id="xcm" class="btn btn-danger radius">行程码</a>
+                </div>
+            </div>
+        </form>
     </article>
 </body>
 <script type="text/javascript" src="lib/jquery.min.js"></script>
