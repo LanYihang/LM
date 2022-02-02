@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+      .auto-style {
+        position: absolute;
+        z-index: 100;
+        height: 200px;
+        width: 730px;
+        top: 1506px;
+        left: 197px;
+      }
+      .auto-style1 {
+        height: 182px;
+        text-align:center;
+        font-size:95px;
+        font-family:楷体;
+        color:#3FAE69;
+        background-color:white;
+      }
+      .auto-style10 {
+        height: 199px;
+        width: 100%;
+      }
+    </style>
+
+</head>
+<body>
+  <div class="auto-style">
+    <table border="0" cellpadding="0" cellspacing="0" class="auto-style10">
+      <tr>
+        <td class="auto-style1"><span>疫苗接种完成</span></td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <!--<img src="img/2.jpg" onload="javascript:DrawImage(this,1080,2400)"/>-->
+     <img src="img/ym.jpg"/>
+  </div>
+</body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+    function a() {
+        $(".auto-style table tr:eq(0) td span").fadeOut();
+        $(".auto-style table tr:eq(0) td span").fadeIn();
+    }
+    setInterval("a()", 1000);
+    /**
+     * 图片按宽高比例进行自动缩放
+     * @param ImgObj
+     *     缩放图片源对象
+     * @param maxWidth
+     *     允许缩放的最大宽度
+     * @param maxHeight
+     *     允许缩放的最大高度
+     * @usage
+     *     调用：<img src="图片" onload="javascript:DrawImage(this,100,100)">
+     */
+    function DrawImage(ImgObj, maxWidth, maxHeight) {
+        var image = new Image();
+        //原图片原始地址（用于获取原图片的真实宽高，当<img>标签指定了宽、高时不受影响）
+        image.src = ImgObj.src;
+        // 用于设定图片的宽度和高度
+        var tempWidth;
+        var tempHeight;
+
+        if (image.width > 0 && image.height > 0) {
+            //原图片宽高比例 大于 指定的宽高比例，这就说明了原图片的宽度必然 > 高度
+            if (image.width / image.height >= maxWidth / maxHeight) {
+                if (image.width > maxWidth) {
+                    tempWidth = maxWidth;
+                    // 按原图片的比例进行缩放
+                    tempHeight = (image.height * maxWidth) / image.width;
+                } else {
+                    // 按原图片的大小进行缩放
+                    tempWidth = image.width;
+                    tempHeight = image.height;
+                }
+            } else {// 原图片的高度必然 > 宽度
+                if (image.height > maxHeight) {
+                    tempHeight = maxHeight;
+                    // 按原图片的比例进行缩放
+                    tempWidth = (image.width * maxHeight) / image.height;
+                } else {
+                    // 按原图片的大小进行缩放
+                    tempWidth = image.width;
+                    tempHeight = image.height;
+                }
+            }
+            // 设置页面图片的宽和高
+            ImgObj.height = tempHeight;
+            ImgObj.width = tempWidth;
+            // 提示图片的原来大小
+            ImgObj.alt = image.width + "×" + image.height;
+        }
+    }
+</script>
+</html>
