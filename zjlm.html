@@ -10,13 +10,13 @@
             height: 50px;
             width: 466px;
             left: 312px;
-            top: 475px;
+            top: 466px;
             z-index: 99;
-            font-size:45px;
+            font-size:58px;
             text-align:center;
             color:white;
             padding-top:0px;
-            background-color:#6EC22C;
+            /*background-color:#6EC22C;*/
         }
         .auto-style2 {
             position: absolute;
@@ -41,26 +41,69 @@
             background-color:white;
             text-align:right;
         }
+        .auto-style4{
+            position: absolute;
+            height: 70px;
+            width: 526px;
+            left: 312px;
+            top: 326px;
+            z-index: 99;
+            font-size:52px;
+            font-weight: bold;
+            text-align:center;
+            color:white;
+            padding-top:0px;
+            font-family: 华文楷体;
+        }
+        .img_style{
+            position: absolute;
+            z-index: 999;
+            top:240px;
+            left: 390px;
+        }
     </style>
 </head>
 <body>
     <img src="img/zzlm.jpg">
-    <div id="n1" class="auto-style1"></div>
-    <div class="auto-style2">兰东</div>
+    <img src="img/zzlogo.png" class="img_style">
+    <div class="auto-style4"></div>
+    <div class="auto-style1"></div>
+    <div class="auto-style2"></div>
     <div class="auto-style3"></div>
 </body>
 <script type="text/javascript">
-    setInterval(showTime(), 60000);
+    $(function (){
+        const xm=getQueryconstiable("xm");
+        const location=getQueryconstiable("location");
+        $(".auto-style4").html(location);
+        $(".auto-style2").html(xm);
+        setInterval(time(), 60000);
+    })
 
-    function showTime() {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
-        var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-        var hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        document.getElementById("n1").innerHTML=year + "-" + month + "-" + day + "&nbsp;&nbsp;" + hour + ":" + minutes;
+    function time() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+        const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+        const hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+        const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        $(".auto-style1").html(year + "-" + month + "-" + day + "&nbsp;&nbsp;" + hour + ":" + minutes);
         $(".auto-style3").html(year + "-" + month + "-" + day );
+        return "";
+    }
+
+    /**
+     * 获得地址中参数对应值
+     * @param {string} 参数名称
+     */
+    const getQueryconstiable = function (variable) {
+        const query = window.location.search.substring(1);
+        const vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split("=");
+            if (pair[0] == variable) { return decodeURI(pair[1]); }
+        }
+        return "";
     }
 </script>
 </html>

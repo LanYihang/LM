@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <style type="text/css">
+        .auto-style0{
+            position: absolute;
+            z-index: 99;
+            top:240px;
+            left: 400px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
+        .auto-style1{
+            position: absolute;
+            z-index: 99;
+            top:380px;
+            left: 220px;
+            width:640px;
+            height: 640px;
+        }
+        .auto-style1 img{
+            width:640px;
+            height: 640px;
+        }
+        .auto-style2{
+            position: absolute;
+            z-index: 99;
+            top:1390px;
+            left: 700px;
+            width:300px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
+        .auto-style3{
+            position: absolute;
+            z-index: 99;
+            top:1480px;
+            left: 700px;
+            width: 300px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+            color:#CC3A44 ;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/bjlm.jpg">
+    <div class="auto-style0"></div>
+    <div class="auto-style1"></div>
+    <div class="auto-style2"></div>
+    <div class="auto-style3"></div>
+</body>
+<script type="text/javascript">
+    $(function (){
+        const zc=getQueryVariable("zc");
+        const dl=getQueryVariable("dl");
+        if(zc=="true")
+            $(".auto-style1").append("<img src='img/bjzc.gif'/>")
+        if(dl=="true")
+            $(".auto-style1").append("<img src='img/bjdl.gif'/>");
+        setInterval(showTime,100);
+    })
+
+    function showTime() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+        const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+        const hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+        const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+        $(".auto-style0").html(year + "年" + month + "月" + day + "日<br/>" + hour + ":" + minutes + ":" + seconds);
+        $(".auto-style2").html(month+"-"+day+"&nbsp;"+hour+":"+minutes);
+        $(".auto-style3").html(month+"-"+day+"&nbsp;24:00");
+    }
+
+    /**
+     * 获得地址中参数对应值
+     * @param {string} 参数名称
+     */
+    var getQueryVariable = function (variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return decodeURI(pair[1]); }
+        }
+        return "";
+    }
+</script>
+</html>
