@@ -16,7 +16,7 @@
             font-size: 42px;
             line-height: 35px;
             background-color: white;
-            font-family: 华文楷体;
+            font-family: 楷体;
         }
         .auto-style2{
             position: absolute;
@@ -28,7 +28,7 @@
             color: #333333;
             font-size: 52px;
             line-height: 65px;
-            font-family: 华文楷体;
+            font-family: 楷体;
             background-color: white;
             font-weight: 500;
         }
@@ -42,7 +42,7 @@
             color: #333333;
             font-size: 52px;
             line-height: 65px;
-            font-family: 华文楷体;
+            font-family: 楷体;
             font-weight: 500;
             background-color: white;
         }
@@ -56,7 +56,7 @@
             color: #999999;
             font-size: 42px;
             line-height: 55px;
-            font-family: 华文楷体;
+            font-family: 楷体;
             font-weight: 500;
             background-color: white;
         }
@@ -67,7 +67,7 @@
     <div class="auto-style1"></div>
     <div class="auto-style2"></div>
     <div class="auto-style3">郑州东</div>
-    <div class="auto-style4">G561</div>
+    <div class="auto-style4"></div>
 </body>
 <script type="text/javascript">
     $(function (){
@@ -76,6 +76,7 @@
         const sfz=getQueryconstiable("sfz");//始发站
         $(".auto-style1").html(cerq);
         $(".auto-style2").html(sfz);
+        $(".auto-style4").html(cc);
     })
 
     /**
