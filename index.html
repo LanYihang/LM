@@ -114,6 +114,30 @@
                     <a id="bjlmdl" class="btn btn-danger radius">北京绿码登录</a>
                 </div>
             </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">乘车日期</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="ccrq" class="input-text radius" value="2022-03-04 19:53">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">始发站</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="sfz" class="input-text radius" value="新乡东">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">车次</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="cc" class="input-text radius" value="G561">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3"></div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <a id="cp" class="btn btn-danger radius">高铁票</a>
+                </div>
+            </div>
         </form>
     </article>
 </body>
@@ -134,6 +158,9 @@
         });
         $("#bjlmdl").click(function (){
             $(this).attr("href","bjlm.html?dl=true");
+        });
+        $("#cp").click(function(){
+            $(this).attr("href","ce.html?ccrq="+$("#ccrq").val()+"&sfz="+$("#sfz").val()+"&cc="+$("#cc").val());
         });
     })
 </script>

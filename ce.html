@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <style>
+        .auto-style1{
+            position: absolute;
+            z-index: 999;
+            width:330px;
+            height: 35px;
+            top:220px;
+            left: 260px;
+            color: #666666;
+            font-size: 42px;
+            line-height: 35px;
+            background-color: white;
+            font-family: 华文楷体;
+        }
+        .auto-style2{
+            position: absolute;
+            z-index: 999;
+            width:165px;
+            height: 65px;
+            top:355px;
+            left: 90px;
+            color: #333333;
+            font-size: 52px;
+            line-height: 65px;
+            font-family: 华文楷体;
+            background-color: white;
+            font-weight: 500;
+        }
+        .auto-style3{
+            position: absolute;
+            z-index: 999;
+            width:165px;
+            height: 65px;
+            top:355px;
+            left: 843px;
+            color: #333333;
+            font-size: 52px;
+            line-height: 65px;
+            font-family: 华文楷体;
+            font-weight: 500;
+            background-color: white;
+        }
+        .auto-style4{
+            position: absolute;
+            z-index: 999;
+            width:105px;
+            height: 55px;
+            top:325px;
+            left: 500px;
+            color: #999999;
+            font-size: 42px;
+            line-height: 55px;
+            font-family: 华文楷体;
+            font-weight: 500;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/cp.jpg"/>
+    <div class="auto-style1"></div>
+    <div class="auto-style2"></div>
+    <div class="auto-style3">郑州东</div>
+    <div class="auto-style4">G561</div>
+</body>
+<script type="text/javascript">
+    $(function (){
+        const cerq=getQueryconstiable("ccrq");//乘车日期
+        const cc=getQueryconstiable("cc");//车次
+        const sfz=getQueryconstiable("sfz");//始发站
+        $(".auto-style1").html(cerq);
+        $(".auto-style2").html(sfz);
+    })
+
+    /**
+     * 获得地址中参数对应值
+     * @param {string} 参数名称
+     */
+    const getQueryconstiable = function (variable) {
+        const query = window.location.search.substring(1);
+        const vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split("=");
+            if (pair[0] == variable) { return decodeURI(pair[1]); }
+        }
+        return "";
+    }
+</script>
+</html>
