@@ -50,6 +50,30 @@
             background-color: white;
             color:#CC3A44 ;
         }
+        .auto-style4{
+            position:absolute;
+            z-index: 99;
+            width:550px;
+            top:1050px;
+            left:232px;
+            font-family: 华文楷体;
+            background-color: white;
+            font-size: 65px;
+            color: #12C600;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .auto-style4 .icon{
+            display: inline-block;
+            background: url("img/tag.gif") no-repeat center;
+            background-size: 100%;
+            width:130px;
+            height: 130px;
+            vertical-align: middle;
+        }
+        .auto-style4 span{
+            vertical-align: center;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +82,10 @@
     <div class="auto-style1"></div>
     <div class="auto-style2"></div>
     <div class="auto-style3"></div>
+    <div id="tag" class="auto-style4" style="display: none;">
+        <span class="icon"></span>
+        <span>扫码未见异常</span>
+    </div>
 </body>
 <script type="text/javascript">
     $(function (){
@@ -65,10 +93,19 @@
         const dl=getQueryVariable("dl");
         if(zc=="true")
             $(".auto-style1").append("<img src='img/bjzc.gif'/>")
-        if(dl=="true")
-            $(".auto-style1").append("<img src='img/bjdl.gif'/>");
-        setInterval(showTime,100);
+        if(dl=="true") {
+            $(".auto-style1").append("<img src='img/bjzc.gif'/>");
+            $("#tag").removeAttr("style");
+            setInterval("showTag()",1000);
+        }
+        showTime();
+        setInterval("showTime()",1000);
     })
+
+    function showTag(){
+        $(".auto-style4 span:eq(1)").fadeOut();
+        $(".auto-style4 span:eq(1)").fadeIn()
+    }
 
     function showTime() {
         const date = new Date();
