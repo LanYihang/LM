@@ -100,6 +100,12 @@
                     <a id="zz" class="btn btn-danger radius">郑州绿码</a>
                 </div>
             </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3"></div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <a id="zzxq" class="btn btn-danger radius">郑州小区绿码</a>
+                </div>
+            </div>
         </form>
         <form class="form form-horizontal">
             <div class="row cl">
@@ -151,7 +157,10 @@
             $(this).attr("href","yxlm.html?m="+$("#m").val()+"&card="+$("#card").val());
         });
         $("#zz").click(function (){
-            $(this).attr("href","zjlm.html?xm="+$("#xm").val()+"&location="+$("#location").val());
+            $(this).attr("href","zjlm.html?zz=true&xm="+$("#xm").val()+"&location="+$("#location").val());
+        });
+        $("#zzxq").click(function (){
+            $(this).attr("href","zjlm.html?xq=true&xm="+$("#xm").val()+"&location="+$("#location").val());
         });
         $("#bjlmzc").click(function (){
             $(this).attr("href","bjlm.html?zc=true");

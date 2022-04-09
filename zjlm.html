@@ -7,64 +7,69 @@
     <style type="text/css">
         .auto-style1 {
             position: absolute;
-            height: 60px;
-            width: 534px;
-            left: 312px;
-            top: 466px;
+            height: 220px;
+            width: 1018px;
+            left: 80px;
+            top: 790px;
             z-index: 99;
-            font-size:58px;
+            font-size:210px;
             text-align:center;
-            color:white;
+            color:black;
             padding-top:0px;
-            font-family: 华文楷体;
+            line-height: 220px;
+            font-family:微软雅黑;
         }
         .auto-style2 {
             position: absolute;
             height: 50px;
             width: 153px;
             z-index: 99;
-            left: 859px;
-            top: 845px;
-            background-color:white;
+            left: 590px;
+            top: 360px;
             text-align:center;
-            font-size:45px;
-            font-family: 华文楷体;
+            font-size:73px;
+            font-family: 微软雅黑;
+            color: #F6FFF4;
         }
         .auto-style3 {
             position: absolute;
-            height: 50px;
-            width: 281px;
+            height: 70px;
+            width: 400px;
             z-index: 99;
-            left: 745px;
-            top: 959px;
-            font-size:45px;
-            background-color:white;
-            text-align:right;
+            left: 385px;
+            top: 1055px;
+            font-size:50px;
+            background-color:#F4F4F4;
+            text-align:center;
+            color: #6C6C6C;
+            font-family: 微软雅黑;
+            font-weight: 545;
         }
         .auto-style4{
             position: absolute;
-            height: 70px;
-            width: 534px;
-            left: 312px;
-            top: 326px;
+            height: 90px;
+            line-height: 90px;
+            width: 1165px;
+            left: 10px;
+            top: 490px;
             z-index: 99;
-            font-size:52px;
-            font-weight: bold;
+            font-size:65px;
+            font-weight: normal;
             text-align:center;
             color:white;
             padding-top:0px;
-            font-family: 华文楷体;
+            font-family: 微软雅黑;
         }
         .img_style{
             position: absolute;
             z-index: 999;
-            top:240px;
-            left: 390px;
+            top:780px;
+            left: 460px;
         }
     </style>
 </head>
 <body>
-    <img src="img/zzlm.jpg">
+    <img id="back" src="img/zzlm.jpg">
     <img src="img/zzlogo.png" class="img_style">
     <div class="auto-style4"></div>
     <div class="auto-style1"></div>
@@ -73,6 +78,12 @@
 </body>
 <script type="text/javascript">
     $(function (){
+        const zz=getQueryconstiable("zz");
+        const xq=getQueryconstiable("xq");
+        if(zz=="true")
+            $("#back").attr("src","img/zzlm.jpg");
+        if(xq=="true")
+            $("#back").attr("src","img/zzxqlm.jpg");
         const xm=getQueryconstiable("xm");
         const location=getQueryconstiable("location");
         $(".auto-style4").html(location);
@@ -87,8 +98,9 @@
         const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
         const hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
         const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        $(".auto-style1").html(year + "-" + month + "-" + day + "&nbsp;&nbsp;" + hour + ":" + minutes);
-        $(".auto-style3").html(year + "-" + month + "-" + day );
+        const second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+        $(".auto-style1").html(hour + ":" + minutes+":"+second);
+        $(".auto-style3").html(year + "年" + month + "月" + day + "日" );
     }
 
     /**
