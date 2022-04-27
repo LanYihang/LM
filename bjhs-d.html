@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <style>
+        .auto-style0{
+            position: absolute;
+            z-index: 100;
+            top:950px;
+            left:245px;
+            width: 200px;
+            height: 35px;
+            font-size: 25px;
+            color: #626669;
+        }
+        .auto-style1{
+            position: absolute;
+            z-index: 100;
+            top:1005px;
+            left:245px;
+            width: 280px;
+            height: 35px;
+            font-size: 25px;
+            color: #626669;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/bjhsd.jpg">
+    <div class="auto-style0"></div>
+    <div class="auto-style1">尤禧医学检验方舱实验室</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+       showTime();
+    });
+    function showTime() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+        var day = date.getDate()-1 < 10 ? "0" + (date.getDate()-1) : (date.getDate()-1);
+        var hour = 19;
+        var minutes = 11;
+        var seconds=17;
+        date1=year + "-" + month + "-" + day;
+        $(".auto-style0").html(year + "-" + month + "-" + day);
+    }
+</script>
+</html>

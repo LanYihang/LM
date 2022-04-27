@@ -134,6 +134,9 @@
                 <div class="formControls col-sm-6 col-xs-6">
                     <a id="bjhs" class="btn btn-danger radius">北京核酸</a>
                 </div>
+                <div class="formControls col-sm-3 col-xs-3">
+                    <a id="bjhsd" class="btn btn-danger radius">北京核酸-豆豆</a>
+                </div>
             </div>
             <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3"></div>
@@ -204,7 +207,10 @@
                 $(this).attr("href","bjhs.html?bjx="+t+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
             else
                 $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
-        })
+        });
+        $("#bjhsd").click(function(){
+            $(this).attr("href","bjhs-d.html");
+        });
     })
 </script>
 </html>
