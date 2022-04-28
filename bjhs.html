@@ -71,7 +71,7 @@
             text-align: center;
             font-family: 华文楷体;
             font-size: 105px;
-            color: #5DA17C;
+            color: #51AF71;
             font-weight: bold;
             vertical-align: middle;
             background-color: white;
@@ -80,14 +80,14 @@
             position: absolute;
             z-index: 100;
             top:1618px;
-            left: 630px;
+            left: 310px;
             height: 50px;
-            width: 50px;
+            width: 415px;
             font-family: 华文楷体;
-            font-size: 50px;
+            font-size: 43px;
             text-align: center;
             line-height: 50px;
-            color: #488D67;
+            color: #51AF71;
             background-color: white;
         }
         .auto-style7{
@@ -132,7 +132,7 @@
         $(".auto-style4").html(bjhssfz.substr(2,2));
         showTime();
         const day=parseInt(getDaysBetween(date1,date2),10);
-        $(".auto-style6").html(day);
+        $(".auto-style6").html("距离本次检测已过"+day+"天");
         setInterval("showTag()",1000);
     })
 
