@@ -8,44 +8,167 @@
         .auto-style0{
             position: absolute;
             z-index: 100;
-            top:1225px;
-            left:315px;
-            width: 200px;
-            height: 35px;
-            font-size: 30px;
-            color: #626669;
+            background: url("img/bjhsd.jpg") no-repeat center;
+            background-color: white;
+            top:600px;
+            left: 270px;
+            height: 580px;
+            width: 550px;
         }
         .auto-style1{
             position: absolute;
             z-index: 100;
-            top:1295px;
-            left:315px;
-            width: 360px;
-            height: 35px;
-            font-size: 25px;
-            color: #626669;
+            background: url("img/bjhss2h.jpg") no-repeat center;
+            background-color: white;
+            top:600px;
+            left: 270px;
+            height: 580px;
+            width: 550px;
+        }
+        .auto-style2{
+            position: absolute;
+            z-index: 100;
+            top:1200px;
+            left: 890px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 40px;
+            background-color: white;
+        }
+        .auto-style3{
+            position: absolute;
+            z-index: 100;
+            top:1285px;
+            left: 580px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
+        .auto-style4{
+            position: absolute;
+            z-index: 100;
+            top:1285px;
+            left: 930px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
+        .auto-style5{
+            position: absolute;
+            z-index: 100;
+            top:1465px;
+            left: 450px;
+            height: 120px;
+            width: 210px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 105px;
+            color: #5DA17C;
+            font-weight: bold;
+            vertical-align: middle;
+            background-color: white;
+        }
+        .auto-style6{
+            position: absolute;
+            z-index: 100;
+            top:1618px;
+            left: 630px;
+            height: 50px;
+            width: 50px;
+            font-family: 华文楷体;
+            font-size: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #51AF71;
+            background-color: white;
+        }
+        .auto-style7{
+            position: absolute;
+            z-index: 100;
+            top:1850px;
+            left: 580px;
+            height: 50px;
+            width: 410px;
+            font-family: 华文楷体;
+            font-size: 40px;
+            background-color: white;
         }
     </style>
 </head>
 <body>
-    <img src="img/bjhsd.jpg">
-    <div class="auto-style0"></div>
-    <div class="auto-style1">尤禧医学检验方舱实验室</div>
+<img src="img/bjhs.jpg">
+<div id="pic"></div>
+<div class="auto-style2"></div>
+<div class="auto-style3"></div>
+<div class="auto-style4"></div>
+<div class="auto-style5">
+    <span>阴性</span>
+</div>
+<div class="auto-style6"></div>
+<div class="auto-style7"></div>
 </body>
 <script type="text/javascript">
-    $(function(){
-       showTime();
-    });
+    var date1,date2=new Date();
+    $(function (){
+        const bjx=getQueryVariable("bjx");
+        const bjhsx=getQueryVariable("bjhsx");
+        const bjhssfz=getQueryVariable("bjhssfz");
+        $("#pic").addClass("auto-style0");
+        $(".auto-style2").html(bjhsx);
+        $(".auto-style3").html(bjhssfz.substr(0,2));
+        $(".auto-style4").html(bjhssfz.substr(2,2));
+        showTime();
+        const day=parseInt(getDaysBetween(date1,date2),10);
+        $(".auto-style6").html(day);
+        setInterval("showTag()",1000);
+    })
+
+    function showTag(){
+        $(".auto-style5 span").fadeOut();
+        $(".auto-style5 span").fadeIn()
+    }
+
     function showTime() {
         var date = new Date();
         var year = date.getFullYear();
         var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
-        var day = date.getDate()-1 < 10 ? "0" + (date.getDate()-1) : (date.getDate()-1);
-        var hour = 19;
+        var day = date.getDate() < 10 ? "0" + (date.getDate()) : (date.getDate());
+        var hour = "05";
         var minutes = 11;
         var seconds=17;
         date1=year + "-" + month + "-" + day;
-        $(".auto-style0").html(year + "-" + month + "-" + day);
+        $(".auto-style7").html(year + "-" + month + "-" + day + "&nbsp;" + hour + ":" + minutes+":"+seconds);
+    }
+    /**
+     * 获得地址中参数对应值
+     * @param {string} 参数名称
+     */
+    var getQueryVariable = function (variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return decodeURI(pair[1]); }
+        }
+        return "";
+    }
+    function getDaysBetween(date1,date2){
+        var startDate=Date.parse(date1);
+        var endDate=Date.parse(date2);
+        if(startDate>endDate)
+            return 0;
+        if(startDate==endDate)
+            return 1;
+        var days=(endDate-startDate)/(1*24*60*60*1000);
+        return days;
     }
 </script>
 </html>
