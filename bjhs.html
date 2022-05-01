@@ -121,6 +121,7 @@
         const bjx=getQueryVariable("bjx");
         const bjhsx=getQueryVariable("bjhsx");
         const bjhssfz=getQueryVariable("bjhssfz");
+        const bjhsrq=getQueryVariable("bjhsrq");
         if(bjx=="S2")
             $("#pic").addClass("auto-style0");
         else if(bjx=="S2H")
@@ -130,7 +131,9 @@
         $(".auto-style2").html(bjhsx);
         $(".auto-style3").html(bjhssfz.substr(0,2));
         $(".auto-style4").html(bjhssfz.substr(2,2));
-        showTime();
+        //showTime();
+        date1=bjhsrq;
+        $(".auto-style7").html(bjhsrq);
         const day=parseInt(getDaysBetween(date1,date2),10);
         $(".auto-style6").html("距离本次检测已过"+day+"天");
         setInterval("showTag()",1000);

@@ -191,7 +191,15 @@
             elem:'#bjhsrq',
             type:'datetime',
             format:'yyyy-MM-dd HH:mm:ss'
-        })
+        });
+        var time = new Date();
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1 < 10 ? "0" + (time.getMonth() + 1) : (time.getMonth() + 1);
+        var hour=time.getHours()<10?"0"+time.getHours():time.getHours();
+        var mini=time.getMinutes()<10?"0"+time.getMinutes():time.getMinutes();
+        var second=time.getSeconds()<10?"0"+time.getSeconds():time.getSeconds();
+        var day = time.getDate() < 10 ? "0" + time.getDate() : time.getDate();
+        $('#bjhsrq').val(year+"-"+month+"-"+day+"  "+hour+":"+mini+":"+second);
         $("#xcm").click(function (){
             $(this).attr("href","xc.html?num="+$("#xc").val()+"&add="+$("#xcd").val()+"&ck="+($("#xh").is(":checked")?"true":"false"));
         });
@@ -216,9 +224,9 @@
         $("#bjhs").click(function(){
             var t=$("input:radio[name='bjx']:checked").val();
             if(t!=undefined)
-                $(this).attr("href","bjhs.html?bjx="+t+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
+                $(this).attr("href","bjhs.html?bjx="+t+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
             else
-                $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
+                $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
         });
         $("#bjhsd").click(function(){
             $(this).attr("href","bjhs-d.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
