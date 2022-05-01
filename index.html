@@ -121,6 +121,12 @@
                 </div>
             </div>
             <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">核酸日期</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="bjhsrq" class="input-text radius">
+                </div>
+            </div>
+            <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3"></div>
                 <div class="formControls col-sm-3 col-xs-3">
                     <input type="radio" name="bjx" value="S2">S2
@@ -178,8 +184,14 @@
     </article>
 </body>
 <script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/laydate/laydate.js"></script>
 <script>
     $(function(){
+        laydate.render({
+            elem:'#bjhsrq',
+            type:'datetime',
+            format:'yyyy-MM-dd HH:mm:ss'
+        })
         $("#xcm").click(function (){
             $(this).attr("href","xc.html?num="+$("#xc").val()+"&add="+$("#xcd").val()+"&ck="+($("#xh").is(":checked")?"true":"false"));
         });
@@ -209,7 +221,7 @@
                 $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
         });
         $("#bjhsd").click(function(){
-            $(this).attr("href","bjhs-d.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
+            $(this).attr("href","bjhs-d.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
         });
     })
 </script>
