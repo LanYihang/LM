@@ -149,6 +149,9 @@
                 <div class="formControls col-sm-6 col-xs-6">
                     <a id="bjlmzc" class="btn btn-danger radius">北京绿码自查</a>
                 </div>
+                <div class="formControls col-sm-3 col-xs-3">
+                    <a id="bjlmzcd" class="btn btn-danger radius">北京绿码自查-豆豆</a>
+                </div>
             </div>
             <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3"></div>
@@ -215,8 +218,15 @@
         $("#bjlmzc").click(function (){
             $(this).attr("href","bjlm.html?zc=true");
         });
+        $("#bjlmzcd").click(function (){
+            $(this).attr("href","bjlm-d.html?zc=true&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
+        });
         $("#bjlmdl").click(function (){
-            $(this).attr("href","bjlm.html?dl=true");
+            var t=$("input:radio[name='bjx']:checked").val();
+            if(t!=undefined)
+                $(this).attr("href","bjlm.html?dl=true&bjx="+t);
+            else
+                $(this).attr("href","bjlm.html?dl=true");
         });
         $("#cp").click(function(){
             $(this).attr("href","ce.html?ccrq="+$("#ccrq").val()+"&sfz="+$("#sfz").val()+"&cc="+$("#cc").val());

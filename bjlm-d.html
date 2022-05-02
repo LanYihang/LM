@@ -86,6 +86,42 @@
             width:506px;
             height: 527px;
         }
+        .auto-style6{
+            position: absolute;
+            z-index: 100;
+            top:1217px;
+            left: 900px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 40px;
+            background-color: white;
+        }
+        .auto-style7{
+            position: absolute;
+            z-index: 100;
+            top:1303px;
+            left: 580px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
+        .auto-style8{
+            position: absolute;
+            z-index: 100;
+            top:1303px;
+            left: 930px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            background-color: white;
+        }
     </style>
 </head>
 <body>
@@ -99,22 +135,24 @@
         <span>扫码未见异常</span>
     </div>
     <div class="auto-style5"></div>
+    <div class="auto-style6"></div>
+    <div class="auto-style7"></div>
+    <div class="auto-style8"></div>
 </body>
 <script type="text/javascript">
     $(function (){
         const zc=getQueryVariable("zc");
         const dl=getQueryVariable("dl");
-        const bjx=getQueryVariable("bjx");
-        if(zc=="true") {
-            $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>");
-            $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
-        }
+        const bjhsx=getQueryVariable("bjhsx");
+        const bjhssfz=getQueryVariable("bjhssfz");
+        $(".auto-style6").html(bjhsx);
+        $(".auto-style7").html(bjhssfz.substr(0,2));
+        $(".auto-style8").html(bjhssfz.substr(2,2));
+        if(zc=="true")
+            $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>")
         if(dl=="true") {
             $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>");
-            if(bjx=="S2")
-                $(".auto-style5").append("<img src='img/bjhss2.jpg'/>");
-            else
-                $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
+            $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
             $("#tag").removeAttr("style");
             setInterval("showTag()",1000);
         }
