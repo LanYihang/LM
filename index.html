@@ -127,12 +127,30 @@
                 </div>
             </div>
             <div class="row cl">
-                <div class="formControls col-sm-3 col-xs-3"></div>
-                <div class="formControls col-sm-3 col-xs-3">
+                <div class="formControls col-sm-3 col-xs-3 text-r">选择人</div>
+                <div class="formControls col-sm-1 col-xs-1">
                     <input type="radio" name="bjx" value="S2">S2
                 </div>
-                <div class="formControls col-sm-3 col-xs-3">
+                <div class="formControls col-sm-1 col-xs-1">
                     <input type="radio" name="bjx" value="S2H">S2H
+                </div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjx" value="S2D">S2D
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">跑马灯颜色</div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjpmd" value="DarkBlue">深蓝
+                </div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjpmd" value="Blue" checked>蓝色
+                </div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjpmd" value="Purple">紫色
+                </div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjpmd" value="Orange">橙色
                 </div>
             </div>
             <div class="row cl">
@@ -140,18 +158,18 @@
                 <div class="formControls col-sm-6 col-xs-6">
                     <a id="bjhs" class="btn btn-danger radius">北京核酸</a>
                 </div>
-                <div class="formControls col-sm-3 col-xs-3">
-                    <a id="bjhsd" class="btn btn-danger radius">北京核酸-豆豆</a>
-                </div>
+<!--                <div class="formControls col-sm-3 col-xs-3">-->
+<!--                    <a id="bjhsd" class="btn btn-danger radius">北京核酸-豆豆</a>-->
+<!--                </div>-->
             </div>
             <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3"></div>
                 <div class="formControls col-sm-6 col-xs-6">
                     <a id="bjlmzc" class="btn btn-danger radius">北京绿码自查</a>
                 </div>
-                <div class="formControls col-sm-3 col-xs-3">
-                    <a id="bjlmzcd" class="btn btn-danger radius">北京绿码自查-豆豆</a>
-                </div>
+<!--                <div class="formControls col-sm-3 col-xs-3">-->
+<!--                    <a id="bjlmzcd" class="btn btn-danger radius">北京绿码自查-豆豆</a>-->
+<!--                </div>-->
             </div>
             <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3"></div>
@@ -216,17 +234,13 @@
             $(this).attr("href","zjlm.html?xq=true&xm="+$("#xm").val()+"&location="+$("#location").val());
         });
         $("#bjlmzc").click(function (){
-            $(this).attr("href","bjlm.html?zc=true");
+            $(this).attr("href","bjlm.html?zc=true&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
         });
-        $("#bjlmzcd").click(function (){
-            $(this).attr("href","bjlm-d.html?zc=true&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val());
-        });
+        // $("#bjlmzcd").click(function (){
+        //     $(this).attr("href","bjlm-d.html?zc=true&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("#bjpmd").val());
+        // });
         $("#bjlmdl").click(function (){
-            var t=$("input:radio[name='bjx']:checked").val();
-            if(t!=undefined)
-                $(this).attr("href","bjlm.html?dl=true&bjx="+t);
-            else
-                $(this).attr("href","bjlm.html?dl=true");
+            $(this).attr("href","bjlm.html?dl=true&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
         });
         $("#cp").click(function(){
             $(this).attr("href","ce.html?ccrq="+$("#ccrq").val()+"&sfz="+$("#sfz").val()+"&cc="+$("#cc").val());

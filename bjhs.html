@@ -25,6 +25,16 @@
             height: 580px;
             width: 550px;
         }
+        .auto-style8{
+            position: absolute;
+            z-index: 100;
+            background: url("img/bjhsd.jpg") no-repeat center;
+            background-color: white;
+            top:600px;
+            left: 270px;
+            height: 580px;
+            width: 550px;
+        }
         .auto-style2{
             position: absolute;
             z-index: 100;
@@ -126,6 +136,8 @@
             $("#pic").addClass("auto-style0");
         else if(bjx=="S2H")
             $("#pic").addClass("auto-style1");
+        else if(bjx=="S2D")
+            $("#pic").addClass("auto-style8");
         else
             $("#pic").addClass({"display":"none"});
         $(".auto-style2").html(bjhsx);

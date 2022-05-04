@@ -8,7 +8,7 @@
         .auto-style0{
             position: absolute;
             z-index: 99;
-            top:240px;
+            top:284px;
             left: 400px;
             text-align: center;
             font-family: 华文楷体;
@@ -18,7 +18,7 @@
         .auto-style1{
             position: absolute;
             z-index: 99;
-            top:380px;
+            top:440px;
             left: 220px;
             width:640px;
             height: 640px;
@@ -27,11 +27,12 @@
             width:640px;
             height: 640px;
         }
+        /*底部日期样式*/
         .auto-style2{
-            position: absolute;
+            position: relative;
             z-index: 99;
-            top:1390px;
-            left: 700px;
+            top:55px;
+            left: 635px;
             width:300px;
             text-align: center;
             font-family: 华文楷体;
@@ -39,10 +40,10 @@
             background-color: white;
         }
         .auto-style3{
-            position: absolute;
+            position: relative;
             z-index: 99;
-            top:1480px;
-            left: 700px;
+            top:85px;
+            left: 635px;
             width: 300px;
             text-align: center;
             font-family: 华文楷体;
@@ -50,12 +51,52 @@
             background-color: white;
             color:#CC3A44 ;
         }
+        /*底部姓 身份证样式*/
+        .auto-style7{
+            position: relative;
+            z-index: 99;
+            top:50px;
+            left: 845px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            line-height: 50px;
+            background-color: white;
+        }
+        .auto-style8{
+            position: relative;
+            z-index: 99;
+            top:80px;
+            left: 520px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            line-height: 50px;
+            background-color: white;
+        }
+        .auto-style9{
+            position: relative;
+            z-index: 99;
+            top:30px;
+            left: 868px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-family: 华文楷体;
+            font-size: 50px;
+            line-height: 50px;
+            background-color: white;
+        }
         .auto-style4{
             position:absolute;
             z-index: 99;
             width:550px;
-            top:1050px;
-            left:232px;
+            top:1110px;
+            left:210px;
             font-family: 华文楷体;
             background-color: white;
             font-size: 65px;
@@ -77,14 +118,63 @@
         .auto-style5{
             position: absolute;
             z-index: 100;
-            top:425px;
+            top:480px;
             left: 287px;
-            width:506px;
-            height: 527px;
+            width:512px;
+            height: 534px;
         }
         .auto-style5 img{
-            width:506px;
-            height: 527px;
+            width:512px;
+            height: 534px;
+        }
+        .auto-style6{
+            position: absolute;
+            z-index: 100;
+            height: 760px;
+            width:965px;
+            top:1630px;
+            left:65px;
+            background-image: url("img/bjlm-button.jpg");
+        }
+        .auto-style10{
+            position:absolute;
+            z-index: 99;
+            width:60px;
+            top:1274px;
+            left:825px;
+            font-family: 华文楷体;
+            font-size: 117px;
+            color: #1F8FFD;
+            font-weight: bold;
+            text-align:center;
+            background-color: white;
+        }
+        .auto-style11{
+            position:absolute;
+            z-index: 99;
+            width:60px;
+            top:1490px;
+            left:925px;
+            font-family: 华文楷体;
+            font-size: 12px;
+            color: #1F8FFD;
+            font-weight: bold;
+            text-align:center;
+            height: 15px;
+        }
+        .auto-style12{
+            position:absolute;
+            z-index: 99;
+            width:660px;
+            top:1435px;
+            left:370px;
+            font-family: 华文楷体;
+            font-size: 100px;
+            color: #1F8FFD;
+            font-weight: bold;
+            text-align:left;
+            background-color: white;
+            display: none;
         }
     </style>
 </head>
@@ -92,29 +182,59 @@
     <img src="img/bjlm.jpg">
     <div class="auto-style0"></div>
     <div class="auto-style1"></div>
-    <div class="auto-style2"></div>
-    <div class="auto-style3"></div>
     <div id="tag" class="auto-style4" style="display: none;">
         <span class="icon"></span>
         <span>扫码未见异常</span>
     </div>
     <div class="auto-style5"></div>
+    <div class="auto-style6">
+        <!--姓 省份证部分-->
+        <div class="auto-style7"></div>
+        <div class="auto-style8"></div>
+        <div class="auto-style9"></div>
+        <!--日期部分-->
+        <div class="auto-style2"></div>
+        <div class="auto-style3"></div>
+    </div>
+    <div class="auto-style10">1</div>
+    <div class="auto-style11"></div>
+    <div class="auto-style12">已完成免疫&nbsp;&nbsp;&nbsp;<img src="img/bjlmg.jpg"> </div>
 </body>
 <script type="text/javascript">
     $(function (){
         const zc=getQueryVariable("zc");
         const dl=getQueryVariable("dl");
         const bjx=getQueryVariable("bjx");
-        if(zc=="true") {
+        const bjhsx=getQueryVariable("bjhsx");
+        const bjhssfz=getQueryVariable("bjhssfz");
+        const bjpmd=getQueryVariable("bjpmd");
+        $(".auto-style7").html(bjhsx);
+        $(".auto-style8").html(bjhssfz.substr(0,2));
+        $(".auto-style9").html(bjhssfz.substr(2,2));
+        if(bjpmd=="DarkBlue")
+            $(".auto-style1").append("<img src='img/bjzc-darkblue.gif'/>");
+        else if(bjpmd=="Blue")
+            $(".auto-style1").append("<img src='img/bjzc-blue.gif'/>");
+        else if(bjpmd=="Purple")
             $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>");
+        else if(bjpmd=="Orange")
+            $(".auto-style1").append("<img src='img/bjzc-orange.gif'/>")
+
+        $(".auto-style11").click(function (){
+            $(".auto-style12").css({"display":"block"});
+        })
+
+        if(bjx=="S2")
+            $(".auto-style5").append("<img src='img/bjhss2.jpg'/>");
+        else if(bjx=="S2H")
+            $(".auto-style5").append("<img src='img/bjhss2h.jpg'/>");
+        else if(bjx=="S2D")
+            $(".auto-style5").append("<img src='img/bjhsd.jpg'/>");
+        else
             $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
-        }
+
         if(dl=="true") {
-            $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>");
-            if(bjx=="S2")
-                $(".auto-style5").append("<img src='img/bjhss2.jpg'/>");
-            else
-                $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
+
             $("#tag").removeAttr("style");
             setInterval("showTag()",1000);
         }
