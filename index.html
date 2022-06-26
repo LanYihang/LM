@@ -127,6 +127,12 @@
                 </div>
             </div>
             <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">核酸天数</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="bjhsts" class="input-text radius" value="1">
+                </div>
+            </div>
+            <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3 text-r">选择人</div>
                 <div class="formControls col-sm-1 col-xs-1">
                     <input type="radio" name="bjx" value="S2">S2
@@ -234,7 +240,7 @@
             $(this).attr("href","zjlm.html?xq=true&xm="+$("#xm").val()+"&location="+$("#location").val());
         });
         $("#bjlmzc").click(function (){
-            $(this).attr("href","bjlm.html?zc=true&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
+            $(this).attr("href","bjlm.html?zc=true&bjhsts="+$("#bjhsts").val()+"&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
         });
         // $("#bjlmzcd").click(function (){
         //     $(this).attr("href","bjlm-d.html?zc=true&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("#bjpmd").val());
