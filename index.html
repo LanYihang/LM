@@ -81,6 +81,12 @@
                 </div>
             </div>
             <div class="row cl">
+                <div class="formControls col-sm-3 col-xs-3 text-r">身份证前六位后四位</div>
+                <div class="formControls col-sm-6 col-xs-6">
+                    <input type="text" id="zzsfz" class="input-text radius" value="1406220032">
+                </div>
+            </div>
+            <div class="row cl">
                 <label class="formControls col-sm-3 col-xs-3 text-r">位置：</label>
                 <div class="formControls col-sm-6 col-xs-6">
                     <input type="text" id="location" class="input-text radius" value="欢迎来到郑州东站！"/>
@@ -92,7 +98,7 @@
                     <a id="zz" class="btn btn-danger radius">郑州绿码</a>
                 </div>
             </div>
-            <div class="row cl">
+            <div class="row cl hidden">
                 <div class="formControls col-sm-3 col-xs-3"></div>
                 <div class="formControls col-sm-6 col-xs-6">
                     <a id="zzxq" class="btn btn-danger radius">郑州小区绿码</a>
@@ -142,7 +148,7 @@
                     <input type="radio" name="bjpmd" value="DarkBlue">深蓝
                 </div>
                 <div class="formControls col-sm-1 col-xs-1">
-                    <input type="radio" name="bjpmd" value="Blue" checked>蓝色
+                    <input type="radio" name="bjpmd" value="Blue" checked>绿色
                 </div>
                 <div class="formControls col-sm-1 col-xs-1">
                     <input type="radio" name="bjpmd" value="Purple">紫色
@@ -234,7 +240,7 @@
             $(this).attr("href","yxlm.html?m="+$("#m").val()+"&card="+$("#card").val());
         });
         $("#zz").click(function (){
-            $(this).attr("href","zjlm.html?zz=true&xm="+$("#xm").val()+"&location="+$("#location").val());
+            $(this).attr("href","zjlm.html?zz=true&xm="+$("#xm").val()+"&location="+$("#location").val()+"&zzsfz="+$("#zzsfz").val());
         });
         $("#zzxq").click(function (){
             $(this).attr("href","zjlm.html?xq=true&xm="+$("#xm").val()+"&location="+$("#location").val());
