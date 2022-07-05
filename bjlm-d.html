@@ -8,67 +8,48 @@
         .auto-style0{
             position: absolute;
             z-index: 99;
-            top:240px;
-            left: 400px;
+            top:1280px;
+            left: 340px;
             text-align: center;
-            font-family: 华文楷体;
+            font-family: Bahnschrift;
             font-size: 50px;
             background-color: white;
         }
         .auto-style1{
             position: absolute;
             z-index: 99;
-            top:380px;
-            left: 220px;
-            width:640px;
-            height: 640px;
+            top:530px;
+            left: 260px;
+            width:566px;
+            height: 566px;
         }
         .auto-style1 img{
-            width:640px;
-            height: 640px;
+            width:566px;
+            height: 566px;
         }
         .auto-style2{
             position: absolute;
             z-index: 99;
-            top:1390px;
-            left: 700px;
-            width:300px;
+            top:1465px;
+            left: 250px;
+            width:70px;
+            height: 133px;
             text-align: center;
-            font-family: 华文楷体;
-            font-size: 50px;
-            background-color: white;
-        }
-        .auto-style3{
-            position: absolute;
-            z-index: 99;
-            top:1480px;
-            left: 700px;
-            width: 300px;
-            text-align: center;
-            font-family: 华文楷体;
-            font-size: 50px;
-            background-color: white;
-            color:#CC3A44 ;
+            font-family: Bahnschrift;
+            font-size: 180px;
+            line-height: 133px;
+            color: #4E6ECA;
         }
         .auto-style4{
             position:absolute;
             z-index: 99;
-            width:550px;
-            top:1050px;
-            left:232px;
+            width:360px;
+            top:1145px;
+            left:390px;
             font-family: 华文楷体;
-            background-color: white;
-            font-size: 65px;
-            color: #12C600;
+            font-size: 57px;
+            color: #EBFDF6;
             font-weight: bold;
-            vertical-align: middle;
-        }
-        .auto-style4 .icon{
-            display: inline-block;
-            background: url("img/tag.gif") no-repeat center;
-            background-size: 100%;
-            width:130px;
-            height: 130px;
             vertical-align: middle;
         }
         .auto-style4 span{
@@ -89,8 +70,8 @@
         .auto-style6{
             position: absolute;
             z-index: 100;
-            top:1217px;
-            left: 900px;
+            top:260px;
+            left: 510px;
             height: 50px;
             width: 50px;
             text-align: center;
@@ -101,8 +82,8 @@
         .auto-style7{
             position: absolute;
             z-index: 100;
-            top:1303px;
-            left: 580px;
+            top:310px;
+            left: 405px;
             height: 50px;
             width: 50px;
             text-align: center;
@@ -113,8 +94,8 @@
         .auto-style8{
             position: absolute;
             z-index: 100;
-            top:1303px;
-            left: 930px;
+            top:310px;
+            left: 640px;
             height: 50px;
             width: 50px;
             text-align: center;
@@ -125,13 +106,11 @@
     </style>
 </head>
 <body>
-    <img src="img/bjlm.jpg">
+    <img src="img/bjlm-d.jpg">
     <div class="auto-style0"></div>
     <div class="auto-style1"></div>
     <div class="auto-style2"></div>
-    <div class="auto-style3"></div>
     <div id="tag" class="auto-style4" style="display: none;">
-        <span class="icon"></span>
         <span>扫码未见异常</span>
     </div>
     <div class="auto-style5"></div>
@@ -145,14 +124,22 @@
         const dl=getQueryVariable("dl");
         const bjhsx=getQueryVariable("bjhsx");
         const bjhssfz=getQueryVariable("bjhssfz");
+        const bjpmd=getQueryVariable("bjpmd");
+        const bjhsts=getQueryVariable("bjhsts");
+        $(".auto-style2").html(bjhsts);
         $(".auto-style6").html(bjhsx);
         $(".auto-style7").html(bjhssfz.substr(0,2));
         $(".auto-style8").html(bjhssfz.substr(2,2));
-        if(zc=="true")
-            $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>")
+        if(bjpmd=="DarkBlue")
+            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        else if(bjpmd=="Blue")
+            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        else if(bjpmd=="Purple")
+            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        else if(bjpmd=="Orange")
+            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>")
         if(dl=="true") {
-            $(".auto-style1").append("<img src='img/bjzc-purple.gif'/>");
-            $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
+            //$(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
             $("#tag").removeAttr("style");
             setInterval("showTag()",1000);
         }
@@ -161,8 +148,8 @@
     })
 
     function showTag(){
-        $(".auto-style4 span:eq(1)").fadeOut();
-        $(".auto-style4 span:eq(1)").fadeIn()
+        $(".auto-style4 span:eq(0)").fadeOut();
+        $(".auto-style4 span:eq(0)").fadeIn()
     }
 
     function showTime() {
@@ -173,9 +160,7 @@
         const hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
         const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-        $(".auto-style0").html(year + "年" + month + "月" + day + "日<br/>" + hour + ":" + minutes + ":" + seconds);
-        $(".auto-style2").html(month+"-"+day+"&nbsp;"+hour+":"+minutes);
-        $(".auto-style3").html(month+"-"+day+"&nbsp;24:00");
+        $(".auto-style0").html(year + "-" + month + "-" + day + "&nbsp;" + hour + ":" + minutes + ":" + seconds);
     }
 
     /**
