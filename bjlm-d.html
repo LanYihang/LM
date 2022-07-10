@@ -46,7 +46,7 @@
             width:360px;
             top:1145px;
             left:390px;
-            font-family: 华文楷体;
+            font-family: 楷体;
             font-size: 57px;
             color: #EBFDF6;
             font-weight: bold;
@@ -58,14 +58,14 @@
         .auto-style5{
             position: absolute;
             z-index: 100;
-            top:425px;
-            left: 287px;
-            width:506px;
-            height: 527px;
+            top:578px;
+            left: 317px;
+            width:450px;
+            height: 450px;
         }
         .auto-style5 img{
-            width:506px;
-            height: 527px;
+            width:450px;
+            height: 450px;
         }
         .auto-style6{
             position: absolute;
@@ -126,6 +126,7 @@
         const bjhssfz=getQueryVariable("bjhssfz");
         const bjpmd=getQueryVariable("bjpmd");
         const bjhsts=getQueryVariable("bjhsts");
+        const bjx=getQueryVariable("bjx");
         $(".auto-style2").html(bjhsts);
         $(".auto-style6").html(bjhsx);
         $(".auto-style7").html(bjhssfz.substr(0,2));
@@ -138,6 +139,16 @@
             $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
         else if(bjpmd=="Orange")
             $(".auto-style1").append("<img src='img/bjzc-green.gif'/>")
+
+        if(bjx=="S2")
+            $(".auto-style5").append("<img src='img/bjhss2.jpg'/>");
+        else if(bjx=="S2H")
+            $(".auto-style5").append("<img src='img/bjhss2h.jpg'/>");
+        else if(bjx=="S2D")
+            $(".auto-style5").append("<img src='img/bjhsd.jpg'/>");
+        else
+            $(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
+
         if(dl=="true") {
             //$(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
             $("#tag").removeAttr("style");
