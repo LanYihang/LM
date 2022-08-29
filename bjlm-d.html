@@ -103,6 +103,18 @@
             font-size: 50px;
             background-color: white;
         }
+        .auto-style9{
+            position: absolute;
+            z-index: 99;
+            top:568px;
+            left: 310px;
+            width:465px;
+            height: 490px;
+        }
+        .auto-style9 img{
+            width:465px;
+            height: 490px;
+        }
     </style>
 </head>
 <body>
@@ -110,6 +122,7 @@
     <div class="auto-style0"></div>
     <div class="auto-style1"></div>
     <div class="auto-style2"></div>
+    <div class="auto-style9"></div>
     <div id="tag" class="auto-style4" style="display: none;">
         <span>扫码未见异常</span>
     </div>
@@ -120,6 +133,7 @@
 </body>
 <script type="text/javascript">
     $(function (){
+        const bjx=getQueryVariable("bjx");
         const zc=getQueryVariable("zc");
         const dl=getQueryVariable("dl");
         const bjhsx=getQueryVariable("bjhsx");
@@ -130,14 +144,20 @@
         $(".auto-style6").html(bjhsx);
         $(".auto-style7").html(bjhssfz.substr(0,2));
         $(".auto-style8").html(bjhssfz.substr(2,2));
-        if(bjpmd=="DarkBlue")
-            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
-        else if(bjpmd=="Blue")
-            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
-        else if(bjpmd=="Purple")
-            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
-        else if(bjpmd=="Orange")
-            $(".auto-style1").append("<img src='img/bjzc-green.gif'/>")
+        if(bjx=="GL") {
+            $(".auto-style1").append("<img src='img/bjzc-blue.gif'/>");
+            $(".auto-style9").append("<img src='img/bjhsgl.JPG'/>");
+        }
+        else
+            $(".auto-style1").append("<img src='img/bjzc-blue.gif'/>");
+        // if(bjpmd=="DarkBlue")
+        //     $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        // else if(bjpmd=="Blue")
+        //     $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        // else if(bjpmd=="Purple")
+        //     $(".auto-style1").append("<img src='img/bjzc-green.gif'/>");
+        // else if(bjpmd=="Orange")
+        //     $(".auto-style1").append("<img src='img/bjzc-green.gif'/>")
         if(dl=="true") {
             //$(".auto-style5").append("<img src='img/bjzc-my.gif'/>");
             $("#tag").removeAttr("style");

@@ -111,6 +111,16 @@
             font-size: 40px;
             background-color: white;
         }
+        .auto-style9{
+            position: absolute;
+            z-index: 100;
+            background: url("img/bjhsgl.JPG") no-repeat center;
+            background-color: white;
+            top:680px;
+            left: 270px;
+            height: 580px;
+            width: 550px;
+        }
     </style>
 </head>
 <body>
@@ -138,6 +148,8 @@
             $("#pic").addClass("auto-style1");
         else if(bjx=="S2D")
             $("#pic").addClass("auto-style8");
+        else if(bjx=="GL")
+            $("#pic").addClass("auto-style9");
         else
             $("#pic").addClass({"display":"none"});
         $(".auto-style2").html(bjhsx);
