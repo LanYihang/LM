@@ -141,6 +141,9 @@
                 <div class="formControls col-sm-1 col-xs-1">
                     <input type="radio" name="bjx" value="S2D">S2D
                 </div>
+                <div class="formControls col-sm-1 col-xs-1">
+                    <input type="radio" name="bjx" value="GL">高磊
+                </div>
             </div>
             <div class="row cl">
                 <div class="formControls col-sm-3 col-xs-3 text-r">跑马灯颜色</div>
@@ -248,9 +251,6 @@
         $("#bjlmzc").click(function (){
             $(this).attr("href","bjlm.html?zc=true&bjhsts="+$("#bjhsts").val()+"&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
         });
-        // $("#bjlmzcd").click(function (){
-        //     $(this).attr("href","bjlm-d.html?zc=true&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("#bjpmd").val());
-        // });
         $("#bjlmdl").click(function (){
             $(this).attr("href","bjlm-d.html?dl=true&bjhsts="+$("#bjhsts").val()+"&bjx="+$("input:radio[name='bjx']:checked").val()+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjpmd="+$("input:radio[name='bjpmd']:checked").val());
         });
