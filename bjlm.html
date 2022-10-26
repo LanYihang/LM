@@ -211,7 +211,7 @@
     </div>
     <div class="auto-style10">1</div>
     <div class="auto-style11"></div>
-    <div class="auto-style12">已完成加强免疫&nbsp;&nbsp;&nbsp;<img src="img/bjlmg.jpg"> </div>
+    <div class="auto-style12"> </div>
     <div class="auto-style13">阴性</div>
 </body>
 <script type="text/javascript">
@@ -223,6 +223,11 @@
         const bjhssfz=getQueryVariable("bjhssfz");
         const bjpmd=getQueryVariable("bjpmd");
         const bjhsts=getQueryVariable("bjhsts");
+        const ym=getQueryVariable("ym");
+        if(ym=="1")
+            $(".auto-style12").html("&nbsp;&nbsp;&nbsp;&nbsp;完成基础免疫&nbsp;&nbsp;&nbsp;<img src=\"img/bjlmg.jpg\">");
+        else if(ym=="2")
+            $(".auto-style12").html("已完成加强免疫&nbsp;&nbsp;&nbsp;<img src=\"img/bjlmg.jpg\"> ");
         $(".auto-style10").html(bjhsts);
         $(".auto-style7").html(bjhsx);
         $(".auto-style8").html(bjhssfz.substr(0,2));
