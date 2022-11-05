@@ -159,9 +159,7 @@
         date1=bjhsrq;
         $(".auto-style7").html(bjhsrq);
         const day=parseInt(getDaysBetween(date1.split(' ')[0],date2),10);
-        alert();
-        alert(Object.is(day,NaN));
-        if(day==NaN)
+        if(Object.is(day,NaN))
             $(".auto-style6").html("核酸检测时间"+bjhsts+"天");
         else
             $(".auto-style6").html("核酸检测时间"+day+"天");
