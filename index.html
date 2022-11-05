@@ -271,9 +271,9 @@
         $("#bjhs").click(function(){
             var t=$("input:radio[name='bjx']:checked").val();
             if(t!=undefined)
-                $(this).attr("href","bjhs.html?bjx="+t+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
+                $(this).attr("href","bjhs.html?bjx="+t+"&bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val()+"&bjhsts="+$("#bjhsts").val());
             else
-                $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());
+                $(this).attr("href","bjhs.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val()+"&bjhsts="+$("#bjhsts").val());
         });
         $("#bjhsd").click(function(){
             $(this).attr("href","bjhs-d.html?bjhsx="+$("#bjhsx").val()+"&bjhssfz="+$("#bjhssfz").val()+"&bjhsrq="+$("#bjhsrq").val());

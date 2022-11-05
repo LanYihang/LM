@@ -90,10 +90,9 @@
             position: absolute;
             z-index: 100;
             top:1680px;
-            left: 310px;
+            left: 300px;
             height: 50px;
             width: 380px;
-            font-family: 华文楷体;
             font-size: 43px;
             text-align: center;
             line-height: 50px;
@@ -142,6 +141,7 @@
         const bjhsx=getQueryVariable("bjhsx");
         const bjhssfz=getQueryVariable("bjhssfz");
         const bjhsrq=getQueryVariable("bjhsrq");
+        const bjhsts=getQueryVariable("bjhsts");
         if(bjx=="S2")
             $("#pic").addClass("auto-style0");
         else if(bjx=="S2H")
@@ -159,7 +159,10 @@
         date1=bjhsrq;
         $(".auto-style7").html(bjhsrq);
         const day=parseInt(getDaysBetween(date1.split(' ')[0],date2),10);
-        $(".auto-style6").html("核酸检测时间"+day+"天");
+        if(day==NaN)
+            $(".auto-style6").html("核酸检测时间"+bjhsts+"天");
+        else
+            $(".auto-style6").html("核酸检测时间"+day+"天");
         setInterval("showTag()",1000);
     })
 
